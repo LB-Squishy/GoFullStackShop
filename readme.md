@@ -17,8 +17,8 @@ Réalisation d'un tutorial à partir d'un magasin en ligne simple | frontend fou
 
 # Lancement du frontend
 
-cd frontend
-npm install
-npm run start
+- cd frontend
+- npm install
+- npm run start
 
 Accédez depuis: http://localhost:4200
