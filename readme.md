@@ -12,13 +12,22 @@ Réalisation d'un tutorial à partir d'un magasin en ligne simple | frontend fou
 ## Technologie:
 
 -   Node.js
+-   Nodemon
 -   Express
 -   MongoDB
 
-# Lancement du frontend
+# Lancement en Local
+
+## frontend:
 
 - cd frontend
 - npm install
 - npm run start
 
 Accédez depuis: http://localhost:4200
+
+## backend:
+
+- nodemon server
+
+Accédez depuis: http://localhost:3000
