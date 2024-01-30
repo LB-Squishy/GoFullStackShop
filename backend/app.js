@@ -31,6 +31,20 @@ app.post('/api/stuff', (req, res, next) => {
     .catch(error => res.status(400).json({ error }));
 });
 
+// Route PUT
+app.put('/api/stuff/:id', (req, res, next) => {
+  Thing.updateOne({ _id: req.params.id }, {...req.body, _id: req.params.id})
+    .then(() => res.status(200).json({message: "Objet modifié !"}))
+    .catch(error => res.status(400).json({ error }));
+});
+
+// Route DELETE
+app.delete('/api/stuff/:id', (req, res, next) => {
+  Thing.deleteOne({ _id: req.params.id })
+    .then(() => res.status(200).json({message: "Objet supprimé !"}))
+    .catch(error => res.status(400).json({ error }));
+});
+
 // Route GET
 
 app.get('/api/stuff/:id', (req, res, next) => {
