@@ -5,13 +5,13 @@ const app = express();
 const mongoose = require('mongoose');
 
 // Connexion à MongoDB restreinte
-// mongoose.connect('mongodb+srv://<saisir user>:<saisir mdp>@cluster0.gmbrfzo.mongodb.net/?retryWrites=true&w=majority',
+// mongoose.connect('mongodb+srv://<user>:<mdp>@cluster0.gmbrfzo.mongodb.net/?retryWrites=true&w=majority',
 //   { useNewUrlParser: true,
 //     useUnifiedTopology: true })
 //   .then(() => console.log('Connexion à MongoDB réussie !'))
 //   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
-const uri = "mongodb+srv://<saisir user>:<saisir mdp>@cluster0.gmbrfzo.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://<user>:<mdp>@cluster0.gmbrfzo.mongodb.net/?retryWrites=true&w=majority";
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 async function run() {
   try {
