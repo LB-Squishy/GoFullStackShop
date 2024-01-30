@@ -2,8 +2,33 @@ const express = require("express");
 
 const app = express();
 
+const mongoose = require('mongoose');
+
+// Connexion à MongoDB restreinte
+// mongoose.connect('mongodb+srv://<saisir user>:<saisir mdp>@cluster0.gmbrfzo.mongodb.net/?retryWrites=true&w=majority',
+//   { useNewUrlParser: true,
+//     useUnifiedTopology: true })
+//   .then(() => console.log('Connexion à MongoDB réussie !'))
+//   .catch(() => console.log('Connexion à MongoDB échouée !'));
+
+const uri = "mongodb+srv://<saisir user>:<saisir mdp>@cluster0.gmbrfzo.mongodb.net/?retryWrites=true&w=majority";
+const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
+async function run() {
+  try {
+    // Create a Mongoose client with a MongoClientOptions object to set the Stable API version
+    await mongoose.connect(uri, clientOptions);
+    await mongoose.connection.db.admin().command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await mongoose.disconnect();
+  }
+}
+run().catch(console.dir);
+
 app.use(express.json());
 
+// Traite le Cross Origin Resource Sharing 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
@@ -11,6 +36,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// Route POST
 app.post('/api/stuff', (req, res, next) => {
   console.log(req.body);
   res.status(201).json({
@@ -18,6 +44,7 @@ app.post('/api/stuff', (req, res, next) => {
   });
 });
 
+// Route GET
 app.get('/api/stuff', (req, res, next) => {
     const stuff = [
       {

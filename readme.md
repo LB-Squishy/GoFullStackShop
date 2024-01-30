@@ -11,10 +11,9 @@ Réalisation d'un tutorial à partir d'un magasin en ligne simple | frontend fou
 
 ## Technologie:
 
--   Node.js
--   Nodemon
+-   Node.js | Nodemon
 -   Express
--   MongoDB
+-   MongoDB Atlas | Mongoose
 
 # Lancement en Local
 
