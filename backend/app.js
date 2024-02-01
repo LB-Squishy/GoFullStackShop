@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 // Import du Router
 const stuffRoutes = require("./routes/stuff");
+const userRoutes = require("./routes/user");
 
 // Connexion à MongoDB restreinte
 mongoose.connect("mongodb+srv://<user>:<mdp>@cluster0.gmbrfzo.mongodb.net/?retryWrites=true&w=majority")
@@ -21,7 +22,8 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-// Enregistrement du Router pour les requêtes vers /api/stuff
+// Enregistrement du Router pour les requêtes
 app.use("/api/stuff", stuffRoutes);
+app.use("/api/auth", userRoutes);
 
 module.exports = app;
