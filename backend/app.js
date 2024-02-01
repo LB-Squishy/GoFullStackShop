@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const stuffRoutes = require("./routes/stuff");
 
 // Connexion à MongoDB restreinte
-mongoose.connect("mongodb+srv://<User>:<mdp>@cluster0.gmbrfzo.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://<user>:<mdp>@cluster0.gmbrfzo.mongodb.net/?retryWrites=true&w=majority")
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('Connexion à MongoDB échouée !'));
   
